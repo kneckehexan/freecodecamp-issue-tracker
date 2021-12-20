@@ -7,7 +7,7 @@ const getIssues = async (req, res) => {
   const issues = await Issue.find({...req.query});
 
   if(!issues){
-    throw new NotFoundError(`No project called ${project} found`);
+    throw new NotFoundError(`No project called ${req.params.project} found`);
   }
 
   var resp = issues.map((d) => ({
